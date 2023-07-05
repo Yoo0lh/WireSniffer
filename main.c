@@ -61,8 +61,8 @@ void PrintPacketInfo(const char *packet) {
          	(unsigned int)((iph->daddr >> 16) & 0xFF),
          	(unsigned int)((iph->daddr >> 24) & 0xFF));
 
-  		printf("Source Port: %u ", ntohs(tcph->source));
-  	printf("Destination Port: %u  ", ntohs(tcph->dest));
+     printf("Source Port: %u ", ntohs(tcph->source));
+  	  printf("Destination Port: %u  ", ntohs(tcph->dest));
 
  	 printf("Flags: [.]");
   	if (tcph->ack)
@@ -151,13 +151,13 @@ void PrintTcp(const char *buff, int size){
 	ip_len = ip->ihl * 4;
 	struct tcphdr *tcph = (struct tcphdr *) (buff + ip_len);
 
-	PrintEnd ("TCP");
+	PrintFirst ("TCP");
 	PrintIpheader(buff,size);
 	fprintf (log_fd, "--> TCP HEADER\n");
 	fprintf (log_fd, "	-> SHOURCE PORT             : %u\n", ntohs(tcph->source));
 	fprintf (log_fd, "	-> DESTINATION  PORT        : %u\n", ntohs(tcph->dest));
 	fprintf (log_fd, "	-> SEQUENCE NUMBER          : %u\n", ntohs(tcph->seq));
-	fprintf (log_fd, "	-> HEADER LENGTH            : %d\n B",tcph->doff * 4);
+	fprintf (log_fd, "	-> HEADER LENGTH            : %d B\n", tcph->doff * 4);
 	fprintf (log_fd, "	-> FLAG                     :\n");
 	fprintf (log_fd, "	    -> URGENT               : %u\n",(unsigned int)tcph->urg);
 	fprintf (log_fd, "	    -> ACK                  : %u\n",(unsigned int)tcph->ack);
