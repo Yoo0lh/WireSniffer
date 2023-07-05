@@ -1,6 +1,8 @@
 ## WireSniffer
 
 **WireSniffer** is a simple packet sniffer that can be used to capture and analyze network traffic. It can be used to identify the different types of traffic that is flowing through a network, as well as the source and destination of that traffic.
+![Image](/images/sniffdog.jpeg "dogsniffer")
+
 
 ## Usage :
 
@@ -18,15 +20,16 @@ you can also use the following command to delete the binary and log file.
 ## Example
 
 The following example shows how to use the socket function to print out information about a TCP packet :
+
 create a socket row for capturing the TCP packets using the socket function .
 ```c
 int socketfd = socket(AF_INET, SOCK_RAW, IPPROTO_TCP)
 ```
-AF_INET : specifies the address family IPV4.
-SOCK_RAW : create a raw socket .
-PPROTO_TCP: specifies the protocol to filter in this case tcp.
+AF_INET : specifies the address family IPV4.</br>
+SOCK_RAW : create a raw socket .</br>
+PPROTO_TCP: specifies the protocol to filter in this case tcp.</br>
 
-> you need a root privilege to run this code as raw socket special permission.
+> you need a root privilege to run this code as raw socket need special permission.
 
 ```c
 int main(){
